@@ -5,6 +5,7 @@
 package com.ohjelmistoprojekti.syksy2019.controller;
 
 import com.ohjelmistoprojekti.syksy2019.domain.question.IsSchoolProjectRepository;
+import com.ohjelmistoprojekti.syksy2019.domain.question.ProgrammingLanguagesRepository;
 import com.ohjelmistoprojekti.syksy2019.domain.question.Question;
 import com.ohjelmistoprojekti.syksy2019.domain.question.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,12 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
 
+	/**
+	 * Näyttää kaikki kysymykset tässä toistaiseksi
+	 */
 	@GetMapping({"/", "/index"})
-	public String index() {
+	public String index(Model model) {
+		model.addAttribute("questions", questionRepository.findAll());
 		return "index";
 	}
 	
@@ -37,11 +42,13 @@ public class MainController {
 	 */
 	@Autowired QuestionRepository questionRepository;
 	@Autowired IsSchoolProjectRepository isSchoolProjectRepository;
+	@Autowired ProgrammingLanguagesRepository programmingLanguagesRepository;
 
 	@GetMapping("/addquestion")
 	public String askQuestion(Model model) {
 		model.addAttribute("question", new Question());
 		model.addAttribute("isSchoolProjectOptions", isSchoolProjectRepository.findAll());
+		model.addAttribute("programmingLanguages", programmingLanguagesRepository.findAll());
 		return "addquestion";
 	}
 

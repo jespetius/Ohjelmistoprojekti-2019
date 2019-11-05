@@ -8,12 +8,12 @@ public class ProgrammingLanguages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long progammingLanguagesId;
+    private Long programmingLanguagesId;
 
     @Column(name = "value", nullable = false, unique = true)
     private String value;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "programmingLanguages")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "programmingLanguages")   // OneToMany
     private List<Question> questions;
 
 
@@ -24,12 +24,12 @@ public class ProgrammingLanguages {
         this.value = value;
     }
 
-    public Long getProgammingLanguagesId() {
-        return progammingLanguagesId;
+    public Long getProgrammingLanguagesId() {
+        return programmingLanguagesId;
     }
 
-    public void setProgammingLanguagesId(Long progammingLanguagesId) {
-        this.progammingLanguagesId = progammingLanguagesId;
+    public void setProgrammingLanguagesId(Long programmingLanguagesId) {
+        this.programmingLanguagesId = programmingLanguagesId;
     }
 
     public String getValue() {

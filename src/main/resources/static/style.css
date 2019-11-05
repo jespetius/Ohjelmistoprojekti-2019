@@ -4,3 +4,15 @@ body {
 	
 }
 
+.question {
+    padding: 4px;
+    margin: 4px;
+    border-style: solid;
+    border-width: 1px
+}
+
+
+/*  */
+p {
+    margin: 2px;
+}

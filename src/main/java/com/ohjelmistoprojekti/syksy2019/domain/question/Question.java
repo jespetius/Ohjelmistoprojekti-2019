@@ -1,8 +1,10 @@
 package com.ohjelmistoprojekti.syksy2019.domain.question;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Question {
@@ -31,6 +33,7 @@ public class Question {
     /**
      * Deadline
      *  TODO: koita saada date-formaattiin (toistaiseksi pelkkä String)
+     *      => https://medium.com/@grokwich/spring-boot-thymeleaf-html-form-handling-762ef0d51327
      *  [Text]
      */
     @Column(name = "deadline", nullable = true, unique = false)
@@ -61,10 +64,10 @@ public class Question {
      * Kysymyksen ohjelmointikielet
      *  [Checkbox]
      */
-    @ManyToOne
+    @ManyToMany // ManyToOne
     @JsonIgnore
     @JoinColumn(name = "prorgammingLanguagesId")
-    ProgrammingLanguages programmingLanguages;
+    private List<ProgrammingLanguages> programmingLanguages;
 
 
     /* ************************************ */
@@ -77,7 +80,7 @@ public class Question {
             String schedule,
             String problemDescription,
             String yourSkills,
-            ProgrammingLanguages programmingLanguages) {
+            List<ProgrammingLanguages> programmingLanguages) {
         this.isSchoolProject = isSchoolProject;
         this.situationDescription = situationDescription;
         this.deadline = deadline;
@@ -143,11 +146,11 @@ public class Question {
         this.yourSkills = yourSkills;
     }
 
-    public ProgrammingLanguages getProgrammingLanguages() {
+    public List<ProgrammingLanguages> getProgrammingLanguages() {
         return programmingLanguages;
     }
 
-    public void setProgrammingLanguages(ProgrammingLanguages programmingLanguages) {
+    public void setProgrammingLanguages(List<ProgrammingLanguages> programmingLanguages) {
         this.programmingLanguages = programmingLanguages;
     }
 }

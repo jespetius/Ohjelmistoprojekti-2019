@@ -14,9 +14,11 @@
             <b>Tarvitsetko apua koulukurssin suorittamiseen?</b><br>
             <span th:each="option: ${isSchoolProjectOptions}">
                 <input
-                        type="radio" th:value="${option.isSchoolProjectId}"
-                        th:field="${question.isSchoolProject}" th:text="${option.value}"
-                        value=""
+                        type="radio"
+                        th:field="${question.isSchoolProject}"
+                        th:value="${option.isSchoolProjectId}"
+                        th:text="${option.value}"
+                        value="" required
                 />
             </span>
             <br /><br />
@@ -28,7 +30,7 @@
 
 
             <!-- ------------------------------------- -->
-            <b>Deadline ??? (Pitäisi olla type="date", toisaiseksi silti type="text")</b><br>
+            <b>Deadline ??? (Pitäisi olla type="date", toistaiseksi silti type="text")</b><br>
             <input th:field="${question.deadline}" type="text" name="deadline"><br><br>
 
 
@@ -49,13 +51,16 @@
 
             <!-- ------------------------------------- -->
             <b>Kieli</b><br>
-            <input type="checkbox" name="kieli" value="html" checked> HTML<br>
-            <input type="checkbox" name="kieli" value="java"> Java<br>
-            <input type="checkbox" name="kieli" value="jss"> JSS<br>
-            <input type="checkbox" name="kieli" value="css"> CSS<br>
-            <input type="checkbox" name="kieli" value="php"> PHP<br>
-            <br>
-            <br>
+            <span th:each="programmingLanguage: ${programmingLanguages}">
+                <input
+                        type="checkbox"
+                        th:field="${question.programmingLanguages}"
+                        th:value="${programmingLanguage.programmingLanguagesId}"
+                        th:text="${programmingLanguage.value}"
+                        text=""
+                /><br />
+            </span>
+            <br /><br />
 
             <input type="submit" value="Save" />
         </form>

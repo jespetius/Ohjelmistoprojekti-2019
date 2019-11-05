@@ -5,10 +5,35 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<title></title>
 </head>
-<body>
+<body lang="fi">
 
-<h4><a th:href="addquestion">Lisää kysymys</a></h4>
+	<h4><a th:href="addquestion">Lisää kysymys</a></h4>
 
+	<h2>Kysymykset:</h2>
+
+	<div th:each="question: ${questions}">
+		<div class="question">
+			<h4>Kysymys ID <span th:text="${question.id}" /></h4>
+			<p><b>Tarvitsetko apua koulukurssin suorittamiseen? </b><span th:text="${question.isSchoolProject.value}" /></p>
+			<p><b>Jos vastasit edelliseen kysymykseen ei, kerro alla tarkemmin: </b><span th:text="${question.situationDescription}" /></p>
+			<p><b>Deadline: </b><span th:text="${question.deadline}" /></p>
+			<p><b>Aikataulu: </b><span th:text="${question.schedule}" /></p>
+			<p><b>Kuvaile ongelma: </b><span th:text="${question.problemDescription}" /></p>
+			<p><b>Oma osaamistasosi: </b><span th:text="${question.yourSkills}" /></p>
+			<p><b>Ohjelmointikielet: </b>
+				<span th:each="language: ${question.programmingLanguages}">
+					<span th:text="${language.value} + ' '" />
+				</span>
+			</p>
+
+			<br />
+			<p><b>Vastaus: </b>[TODO]</p>
+			<p>
+				<a href="#">VASTAA (salli kaikille)</a>
+				<a href="#">POISTA (salli vain adminille)</a>
+			</p>
+		</div>
+	</div>
 
 </body>
 </html>

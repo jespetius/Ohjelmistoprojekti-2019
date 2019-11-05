@@ -10,7 +10,7 @@ public class IsSchoolProject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long isSchoolProjectId;
 
-    @Column(name = "value", nullable = false, unique = true)
+    @Column(name = "value", nullable = true, unique = true)
     private String value;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "isSchoolProject")
