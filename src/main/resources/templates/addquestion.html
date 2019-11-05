@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title></title>
+</head>
+<body>
+
+    <div>
+        <form th:object="${question}" th:action="@{/addquestion}" action="#" method="post">
+
+            <!-- ------------------------------------- -->
+            <b>Tarvitsetko apua koulukurssin suorittamiseen?</b><br>
+            <span th:each="option: ${isSchoolProjectOptions}">
+                <input
+                        type="radio" th:value="${option.isSchoolProjectId}"
+                        th:field="${question.isSchoolProject}" th:text="${option.value}"
+                        value=""
+                />
+            </span>
+            <br /><br />
+
+
+            <!-- ------------------------------------- -->
+            <b>Jos vastasit edelliseen kysymykseen ei, kerro alla tarkemmin</b><br>
+            <textarea th:field="${question.situationDescription}" style="width:450px; height:200px;"></textarea><br><br>
+
+
+            <!-- ------------------------------------- -->
+            <b>Deadline ??? (Pitäisi olla type="date", toisaiseksi silti type="text")</b><br>
+            <input th:field="${question.deadline}" type="text" name="deadline"><br><br>
+
+
+            <!-- ------------------------------------- -->
+            <b>Aikataulu</b><br>
+            <textarea th:field="${question.schedule}" style="width:450px; height:50px;"></textarea><br><br>
+
+
+            <!-- ------------------------------------- -->
+            <b>Kuvaile ongelma</b><br>
+            <textarea th:field="${question.problemDescription}" style="width:450px; height:200px;"></textarea><br><br>
+
+
+            <!-- ------------------------------------- -->
+            <b>Oma osaamistasosi</b><br>
+            <textarea th:field="${question.yourSkills}" style="width:450px; height:50px;"></textarea><br><br>
+
+
+            <!-- ------------------------------------- -->
+            <b>Kieli</b><br>
+            <input type="checkbox" name="kieli" value="html" checked> HTML<br>
+            <input type="checkbox" name="kieli" value="java"> Java<br>
+            <input type="checkbox" name="kieli" value="jss"> JSS<br>
+            <input type="checkbox" name="kieli" value="css"> CSS<br>
+            <input type="checkbox" name="kieli" value="php"> PHP<br>
+            <br>
+            <br>
+
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+
+
+</body>
+</html>

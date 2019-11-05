@@ -22,6 +22,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+
+		/**
+		 * Skipataan authorisointi toistaiseksi
+		 */
+		http.httpBasic().disable();
+
+		/*
 		http
 			.authorizeRequests()
 			.antMatchers( "/", "/signin").permitAll()
@@ -32,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.permitAll();
+		 */
 	}
 	
 	@Autowired
