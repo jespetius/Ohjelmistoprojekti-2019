@@ -1,0 +1,10 @@
+package com.ohjelmistoprojekti.syksy2019.domain;
+
+
+
+import org.springframework.data.repository.CrudRepository;
+
+public interface UserRepository extends CrudRepository<User, Long> {
+	User findByUsername(String username);
+
+}
