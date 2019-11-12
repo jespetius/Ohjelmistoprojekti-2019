@@ -131,19 +131,19 @@ public class Question {
         this.schedule = schedule;
     }
 
-    public String getpescription() {
+    public String getPescription() {
         return pescription;
     }
 
-    public void setpescription(String pescription) {
+    public void setPescription(String pescription) {
         this.pescription = pescription;
     }
 
-    public String getskills() {
+    public String getSkills() {
         return skills;
     }
 
-    public void setskills(String skills) {
+    public void setSkills(String skills) {
         this.skills = skills;
     }
 

@@ -18,8 +18,8 @@
 			<p><b>Jos vastasit edelliseen kysymykseen ei, kerro alla tarkemmin: </b><span th:text="${question.description}" /></p>
 			<p><b>Deadline: </b><span th:text="${question.deadline}" /></p>
 			<p><b>Aikataulu: </b><span th:text="${question.schedule}" /></p>
-			<!--  <p><b>Kuvaile ongelma: </b><span th:text="${question.pescription}" /></p>-->
-			<!--  <p><b>Oma osaamistasosi: </b><span th:text="${question.skills}" /></p> -->
+			  <p><b>Kuvaile ongelma: </b><span th:text="${question.pescription}" /></p>
+			<p><b>Oma osaamistasosi: </b><span th:text="${question.skills}" /></p>
 			<p><b>Ohjelmointikielet: </b>
 				<span th:each="language: ${question.programmingLanguages}">
 					<span th:text="${language.value} + ' '" />
