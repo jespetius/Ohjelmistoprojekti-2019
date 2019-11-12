@@ -1,7 +1,11 @@
 package com.ohjelmistoprojekti.syksy2019.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Post {
-	 private final long id;
+	@Id
+	private final long id;
 	    private String content;
 	    private String q;
 	    
