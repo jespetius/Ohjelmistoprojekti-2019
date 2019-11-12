@@ -7,6 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name="question")
 public class Question {
 
     @Id
@@ -27,8 +28,8 @@ public class Question {
      * "Jos vastasit edelliseen kysymykseen ei, kerro alla tarkemmin"
      *  [Textbox]
      */
-    @Column(name = "situationDescription", nullable = true, unique = false)
-    private String situationDescription;
+    @Column(name = "description", nullable = true, unique = false)
+    private String description;
 
     /**
      * Deadline
@@ -50,15 +51,15 @@ public class Question {
      * Ongelman kuvaus
      *  [Textbox]
      */
-    @Column(name = "problemDescription", nullable = true, unique = false)
-    private String problemDescription;
+    @Column(name = "pescription", nullable = true, unique = false)
+    private String pescription;
 
     /**
      * Kysyjän tietotaito
      *  [Textbox]
      */
-    @Column(name = "yourSkills", nullable = true, unique = false)
-    private String yourSkills;
+    @Column(name = "skills", nullable = true, unique = false)
+    private String skills;
 
     /**
      * Kysymyksen ohjelmointikielet
@@ -75,18 +76,18 @@ public class Question {
 
     public Question(
             IsSchoolProject isSchoolProject,
-            String situationDescription,
+            String description,
             String deadline,
             String schedule,
-            String problemDescription,
-            String yourSkills,
+            String pescription,
+            String skills,
             List<ProgrammingLanguages> programmingLanguages) {
         this.isSchoolProject = isSchoolProject;
-        this.situationDescription = situationDescription;
+        this.description = description;
         this.deadline = deadline;
         this.schedule = schedule;
-        this.problemDescription = problemDescription;
-        this.yourSkills = yourSkills;
+        this.pescription = pescription;
+        this.skills = skills;
         this.programmingLanguages = programmingLanguages;
     }
 
@@ -106,12 +107,12 @@ public class Question {
         this.isSchoolProject = isSchoolProject;
     }
 
-    public String getSituationDescription() {
-        return situationDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSituationDescription(String situationDescription) {
-        this.situationDescription = situationDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getDeadline() {
@@ -130,20 +131,20 @@ public class Question {
         this.schedule = schedule;
     }
 
-    public String getProblemDescription() {
-        return problemDescription;
+    public String getpescription() {
+        return pescription;
     }
 
-    public void setProblemDescription(String problemDescription) {
-        this.problemDescription = problemDescription;
+    public void setpescription(String pescription) {
+        this.pescription = pescription;
     }
 
-    public String getYourSkills() {
-        return yourSkills;
+    public String getskills() {
+        return skills;
     }
 
-    public void setYourSkills(String yourSkills) {
-        this.yourSkills = yourSkills;
+    public void setskills(String skills) {
+        this.skills = skills;
     }
 
     public List<ProgrammingLanguages> getProgrammingLanguages() {

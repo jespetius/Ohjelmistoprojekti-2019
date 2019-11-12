@@ -3,6 +3,7 @@ package com.ohjelmistoprojekti.syksy2019.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name="user")
 public class User {
 
     @Id
@@ -29,8 +30,7 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
     
-    @Column(name = "active", nullable = false)
-    private int active;
+    
     
     public User() {
     }
