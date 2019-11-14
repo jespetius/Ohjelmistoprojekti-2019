@@ -14,7 +14,7 @@
 	<div th:each="question: ${questions}">
 		<div class="question">
 			<h4>Kysymys ID <span th:text="${question.id}" /></h4>
-			<!--  <p><b>Tarvitsetko apua koulukurssin suorittamiseen? </b><span th:text="${question.isSchoolProject.value}" /></p>-->
+			<p><b>Tarvitsetko apua koulukurssin suorittamiseen? </b><span th:text="${question.isSchoolProject.value}" /></p>
 			<p><b>Jos vastasit edelliseen kysymykseen ei, kerro alla tarkemmin: </b><span th:text="${question.description}" /></p>
 			<p><b>Deadline: </b><span th:text="${question.deadline}" /></p>
 			<p><b>Aikataulu: </b><span th:text="${question.schedule}" /></p>

@@ -3,7 +3,7 @@ package com.ohjelmistoprojekti.syksy2019.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user")
+//@Table(name="user")
 public class User {
 
     @Id
@@ -32,8 +32,7 @@ public class User {
     
     
     
-    public User() {
-    }
+    //public User() {}
 
 	public User(String firstname, String surname, String email, String username, String passwordHash, String role) {
 		super();

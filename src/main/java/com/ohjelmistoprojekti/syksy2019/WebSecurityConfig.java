@@ -31,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		/*
 		http
 			.authorizeRequests()
-			.antMatchers( "/", "/signin").permitAll()
+			.antMatchers( "/", "/signup").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
@@ -39,7 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.permitAll();
-		 */
+				*/
+		 
 	}
 	
 	@Autowired

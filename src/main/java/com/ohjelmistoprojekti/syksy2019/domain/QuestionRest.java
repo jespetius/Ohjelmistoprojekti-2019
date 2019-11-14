@@ -3,15 +3,15 @@ package com.ohjelmistoprojekti.syksy2019.domain;
 import javax.persistence.*;
 
 @Entity
-public class Post {
+public class QuestionRest {
 	@Id
 	private final long id;
-	    private String content;
+	    private String question;
 	    private String q;
 	    
-	    public Post(long id, String content, String q) {
+	    public QuestionRest(long id, String question, String q) {
 	        this.id = id;
-	        this.content = content;
+	        this.question = question;
 	        this.q = q;
 	    }
 
@@ -23,8 +23,8 @@ public class Post {
 	        return id;
 	    }
 
-	    public String getContent() {
-	        return content;
+	    public String getQuestion() {
+	        return question;
 	    }
 	    
 	    public void setQ(String q) {
