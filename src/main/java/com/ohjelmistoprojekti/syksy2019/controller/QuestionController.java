@@ -30,13 +30,13 @@ public class QuestionController {
 			return (List<SimpleQuestion>) repository.findAll();
 		}
 		
-//		 @PostMapping("/questions")
-//		 SimpleQuestion newQuestion(@RequestBody SimpleQuestion newQuestion) {
-//		    return repository.save(newQuestion);
-//		  }
-//
-//		  // Single item
-//
+		 @PostMapping("/questions")
+		 SimpleQuestion newQuestion(@RequestBody SimpleQuestion newQuestion) {
+		    return repository.save(newQuestion);
+		  }
+
+		  // Single item
+
 		  @GetMapping("/questions/{id}")
 		  Optional<SimpleQuestion> one(@PathVariable Long id) {
 

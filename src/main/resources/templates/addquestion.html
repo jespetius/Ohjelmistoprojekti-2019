@@ -10,57 +10,20 @@
     <div>
         <form th:object="${question}" th:action="@{/addquestion}" action="#" method="post">
 
-            <!-- ------------------------------------- -->
-            <b>Tarvitsetko apua koulukurssin suorittamiseen?</b><br>
-            <span th:each="option: ${isSchoolProjectOptions}">
-                <input
-                        type="radio"
-                        th:field="${question.isSchoolProject}"
-                        th:value="${option.isSchoolProjectId}"
-                        th:text="${option.value}"
-                        value="" required
-                />
-            </span>
-            <br /><br />
-
-
-            <!-- ------------------------------------- -->
-            <b>Jos vastasit edelliseen kysymykseen ei, kerro alla tarkemmin</b><br>
-            <textarea th:field="${question.description}" style="width:450px; height:200px;"></textarea><br><br>
-
 
             <!-- ------------------------------------- -->
             <b>Deadline ??? (Pitäisi olla type="date", toistaiseksi silti type="text")</b><br>
-            <input th:field="${question.deadline}" type="text" name="deadline"><br><br>
-
-
-            <!-- ------------------------------------- -->
-            <b>Aikataulu</b><br>
-            <textarea th:field="${question.schedule}" style="width:450px; height:50px;"></textarea><br><br>
-
+            <input th:field="${question.title}" type="text" name="title"><br><br>
 
             <!-- ------------------------------------- -->
-            <b>Kuvaile ongelma</b><br>
-            <textarea th:field="${question.pescription}" style="width:450px; height:200px;"></textarea><br><br>
+            <b>Lisää kysymys</b><br>
+            <textarea th:field="${question.description}" style="width:450px; height:200px;"></textarea><br><br>
 
 
-            <!-- ------------------------------------- -->
-            <b>Oma osaamistasosi</b><br>
-            <textarea th:field="${question.skills}" style="width:450px; height:50px;"></textarea><br><br>
 
 
-            <!-- ------------------------------------- -->
-            <b>Kieli</b><br>
-            <span th:each="programmingLanguage: ${programmingLanguages}">
-                <input
-                        type="checkbox"
-                        th:field="${question.programmingLanguages}"
-                        th:value="${programmingLanguage.programmingLanguagesId}"
-                        th:text="${programmingLanguage.value}"
-                        text=""
-                /><br />
-            </span>
-            <br /><br />
+
+
 
             <input type="submit" value="Save" />
         </form>
