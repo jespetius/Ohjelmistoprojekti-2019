@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		/**
 		 * Skipataan authorisointi toistaiseksi
 		 */
+		http.cors().and().csrf().disable();
 		http.httpBasic().disable();
 
 		/*

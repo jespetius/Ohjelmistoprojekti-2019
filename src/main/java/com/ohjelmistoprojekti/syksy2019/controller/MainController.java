@@ -4,8 +4,6 @@
 
 package com.ohjelmistoprojekti.syksy2019.controller;
 
-import com.ohjelmistoprojekti.syksy2019.domain.QuestionRest;
-import com.ohjelmistoprojekti.syksy2019.domain.QuestionRestRepository;
 import com.ohjelmistoprojekti.syksy2019.domain.question.IsSchoolProjectRepository;
 import com.ohjelmistoprojekti.syksy2019.domain.question.ProgrammingLanguagesRepository;
 import com.ohjelmistoprojekti.syksy2019.domain.question.Question;
@@ -49,7 +47,6 @@ public class MainController {
 	@Autowired IsSchoolProjectRepository isSchoolProjectRepository;
 	@Autowired ProgrammingLanguagesRepository programmingLanguagesRepository;
 	@Autowired SimpleQuestionRepository simpleQuestionRepository;
-	@Autowired QuestionRestRepository questionRestRepository;
 
 //	@GetMapping("/addresponse")
 //	public String askResponse(Model model) {

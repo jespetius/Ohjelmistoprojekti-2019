@@ -67,13 +67,13 @@ public class Syksy2019Application {
 			/**
 			 * Tehdään testikysymykset
 			 */
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 1", "Tarvitsetko apua koulukurssin suorittamiseen?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 2", "Deadline?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 3", "Aikataulu?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 4", "Kuvaile ongelma?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 5", "Aikataulu?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 6", "Oma osaamistasosi?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 7", "Ohjelmointikielet?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 1", "Tarvitsetko apua koulukurssin suorittamiseen?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 2", "Deadline?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 3", "Aikataulu?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 4", "Kuvaile ongelma?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 5", "Aikataulu?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 6", "Oma osaamistasosi?"));
+//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 7", "Ohjelmointikielet?"));
 		};
 	}
 }

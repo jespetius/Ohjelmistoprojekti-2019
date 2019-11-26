@@ -16,7 +16,7 @@ public class CustomErrorController implements ErrorController {
 		Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
 		Exception exception = (Exception) request.getAttribute("javax.servlet.error.exception");
 		return String.format(
-				"<html><body><h2>Virhe!</h2><div>Teit jotain väärin tai sitten  ryhmämme ei osaa koodata.</div><div>Status code: <b>%s</b></div>"
+				"<html><body><h2>Virhe!</h2><div>Teit jotain väärin tai sitten ryhmämme ei osaa koodata.</div><div>Status code: <b>%s</b></div>"
 						+ "<div>Exception Message: <b>%s</b></div><body></html>",
 				statusCode, exception == null ? "N/A" : exception.getMessage());
 	}

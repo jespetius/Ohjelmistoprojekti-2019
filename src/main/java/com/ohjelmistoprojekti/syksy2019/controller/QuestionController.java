@@ -19,50 +19,52 @@ import com.ohjelmistoprojekti.syksy2019.domain.question.SimpleQuestionRepository
 @RestController
 public class QuestionController {
 
-		private final SimpleQuestionRepository repository;
-		
-		QuestionController(SimpleQuestionRepository repository) {
-			this.repository = repository;
-		}
+	private final SimpleQuestionRepository repository;
 	
-		@GetMapping("/questions")
-		List<SimpleQuestion> all() {
-			return (List<SimpleQuestion>) repository.findAll();
-		}
-		
-		 @PostMapping("/questions")
-		 SimpleQuestion newQuestion(@RequestBody SimpleQuestion newQuestion) {
-		    return repository.save(newQuestion);
-		  }
+	QuestionController(SimpleQuestionRepository repository) {
+		this.repository = repository;
+	}
+	
+	@GetMapping("/questions")
+	List<SimpleQuestion> all() {
+		return (List<SimpleQuestion>) repository.findAll();
+	}
 
-		  // Single item
+	@PostMapping("/questions")
+	SimpleQuestion newQuestion(@RequestBody SimpleQuestion newQuestion) {
+		return repository.save(newQuestion);
+	}
 
-		  @GetMapping("/questions/{id}")
-		  Optional<SimpleQuestion> one(@PathVariable Long id) {
+	// Single item
+	@GetMapping("/questions/{id}")
+	Optional<SimpleQuestion> one(@PathVariable Long id) {
+		return repository.findById(id);
+	}
 
-		    return repository.findById(id);
-		  	  }
-//
-//		  @PutMapping("/questions/{id}")
-//		  SimpleQuestion replaceQuestion(@RequestBody SimpleQuestion newQuestion, @PathVariable Long id) {
-//
-//		    return repository.findById(id)
-//		      .map(question -> {
-//		        question.setTitle(newQuestion.getTitle());
-//		        question.setDescription(newQuestion.getDescription());
-//
-//		        
-//		        return repository.save(question);
-//		      })
-//		      .orElseGet(() -> {
-//		        newQuestion.setId(id);
-//		        return repository.save(newQuestion);
-//		      });
-//		  }
-//
-//		  @DeleteMapping("/questions/{id}")
-//		  void deleteQuestion(@PathVariable Long id) {
-//		    repository.deleteById(id);
-//		  }
-//		
+
+	@PutMapping("/questions/{id}")
+	SimpleQuestion replaceQuestion(@RequestBody SimpleQuestion newQuestion, @PathVariable Long id) {
+
+    return repository.findById(id)
+    	.map(question -> {
+    		question.setTitle(newQuestion.getTitle());
+	        question.setDescription(newQuestion.getDescription());
+
+        
+	        return repository.save(question);
+    	})
+		.orElseGet(() -> {
+			newQuestion.setId(id);
+			return repository.save(newQuestion);
+		});
+
+	}
+
+	@DeleteMapping("/questions/{id}")
+	void deleteQuestion(@PathVariable Long id) {
+		repository.deleteById(id);
+	}
+	
+	
+
 }
