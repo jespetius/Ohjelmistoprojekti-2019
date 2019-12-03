@@ -10,8 +10,12 @@ import com.ohjelmistoprojekti.syksy2019.domain.question.ProgrammingLanguages;
 import com.ohjelmistoprojekti.syksy2019.domain.question.ProgrammingLanguagesRepository;
 import com.ohjelmistoprojekti.syksy2019.domain.question.Question;
 import com.ohjelmistoprojekti.syksy2019.domain.question.QuestionRepository;
+import com.ohjelmistoprojekti.syksy2019.domain.question.SimpleAnswer;
+import com.ohjelmistoprojekti.syksy2019.domain.question.SimpleAnswerRepository;
 import com.ohjelmistoprojekti.syksy2019.domain.question.SimpleQuestion;
 import com.ohjelmistoprojekti.syksy2019.domain.question.SimpleQuestionRepository;
+
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -34,7 +38,8 @@ public class Syksy2019Application {
 			IsSchoolProjectRepository isSchoolProjectRepository,
 			ProgrammingLanguagesRepository programmingLanguagesRepository,
 			QuestionRepository questionRepository,
-			SimpleQuestionRepository simpleQuestionRepository
+			SimpleQuestionRepository simpleQuestionRepository,
+			SimpleAnswerRepository simpleAnswerRepository
 			
 	) {
 		return (args) -> {
@@ -65,15 +70,27 @@ public class Syksy2019Application {
 			programmingLanguagesRepository.save(new ProgrammingLanguages("Python"));
 			
 			/**
+			 * Tehdään testivastaukset
+			 */
+//			simpleAnswerRepository.save(new SimpleAnswer("Vastaus 1"));
+//			simpleAnswerRepository.save(new SimpleAnswer("Vastaus 2"));
+//			simpleAnswerRepository.save(new SimpleAnswer("Vastaus 3"));
+//			simpleAnswerRepository.save(new SimpleAnswer("Vastaus 4"));
+//			simpleAnswerRepository.save(new SimpleAnswer("Vastaus 5"));
+//			simpleAnswerRepository.save(new SimpleAnswer("Vastaus 6"));
+			
+			
+			/**
 			 * Tehdään testikysymykset
 			 */
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 1", "Tarvitsetko apua koulukurssin suorittamiseen?"));
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 2", "Deadline?"));
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 3", "Aikataulu?"));
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 4", "Kuvaile ongelma?"));
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 5", "Aikataulu?"));
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 6", "Oma osaamistasosi?"));
-//			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 7", "Ohjelmointikielet?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 1", "Tarvitsetko apua koulukurssin suorittamiseen?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 2", "Deadline?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 3", "Aikataulu?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 4", "Kuvaile ongelma?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 5", "Aikataulu?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 6", "Oma osaamistasosi?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 7", "Ohjelmointikielet?"));
+			
 		};
 	}
 }

@@ -30,6 +30,7 @@ public class QuestionController {
 		return (List<SimpleQuestion>) repository.findAll();
 	}
 
+	// Lisää kysymys
 	@PostMapping("/questions")
 	SimpleQuestion newQuestion(@RequestBody SimpleQuestion newQuestion) {
 		return repository.save(newQuestion);
@@ -41,7 +42,7 @@ public class QuestionController {
 		return repository.findById(id);
 	}
 
-
+	// Muokkaa kysymystä/lisää vastaus
 	@PutMapping("/questions/{id}")
 	SimpleQuestion replaceQuestion(@RequestBody SimpleQuestion newQuestion, @PathVariable Long id) {
 
@@ -49,6 +50,7 @@ public class QuestionController {
     	.map(question -> {
     		question.setTitle(newQuestion.getTitle());
 	        question.setDescription(newQuestion.getDescription());
+	        question.setAnswers(newQuestion.getAnswers());
 
         
 	        return repository.save(question);
@@ -64,7 +66,5 @@ public class QuestionController {
 	void deleteQuestion(@PathVariable Long id) {
 		repository.deleteById(id);
 	}
-	
-	
 
 }

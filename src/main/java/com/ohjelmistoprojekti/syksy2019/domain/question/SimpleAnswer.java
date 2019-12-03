@@ -22,24 +22,33 @@ public class SimpleAnswer {
     @Column(name = "answerId", nullable = false, unique = true)
     private Long answerId;
 	
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "simpleAnswers")
-    @JsonIgnore
-    private List<SimpleQuestion> simpleQuestions;
+	@ManyToOne
+	@JsonIgnore
+	@JoinColumn(name = "id")
+	private SimpleQuestion simpleQuestion;
 	
 	@Column(name="answer", nullable=false, unique=false)
 	private String answer;
 	
 	public SimpleAnswer() {}
 	
-	public SimpleAnswer(Long answerId, List<SimpleQuestion> simpleQuestions, String answer) {
-		super();
+	public SimpleAnswer(String answer) {
+		this.answer = answer;
+	}
+	
+	public SimpleAnswer(Long answerId, String answer) {
 		this.answerId = answerId;
-		this.simpleQuestions = simpleQuestions;
+		this.answer = answer;
+	}
+	
+	public SimpleAnswer(Long answerId, SimpleQuestion simpleQuestion, String answer) {
+		this.answerId = answerId;
+		this.simpleQuestion = simpleQuestion;
 		this.answer = answer;
 	}
 
-
-
+	
+	/* ***************************** */
 	public Long getAnswerId() {
 		return answerId;
 	}
@@ -48,20 +57,20 @@ public class SimpleAnswer {
 		this.answerId = answerId;
 	}
 
-	public List<SimpleQuestion> getSimpleQuestions() {
-		return simpleQuestions;
-	}
-
-	public void setSimpleQuestions(List<SimpleQuestion> simpleQuestions) {
-		this.simpleQuestions = simpleQuestions;
-	}
-
 	public String getAnswer() {
 		return answer;
 	}
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+
+	public SimpleQuestion getSimpleQuestion() {
+		return simpleQuestion;
+	}
+
+	public void setSimpleQuestion(SimpleQuestion simpleQuestion) {
+		this.simpleQuestion = simpleQuestion;
 	}
 	
 	

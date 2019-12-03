@@ -3,6 +3,8 @@ package com.ohjelmistoprojekti.syksy2019.domain.question;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import javax.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,9 +15,7 @@ public class SimpleQuestion {
     @Column(name = "id", nullable = false, unique = true)
     private Long id;
     
-    @ManyToMany
-    @JsonIgnore
-    @JoinColumn(name = "answerId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "simpleQuestion")
     private List<SimpleAnswer> simpleAnswers;
 
     @Column(name = "title", nullable = true, unique = false)
@@ -24,41 +24,41 @@ public class SimpleQuestion {
     @Column(name = "description", nullable = true, unique = false)
     private String description;
 
-
+    @ElementCollection
+    @CollectionTable(name="listOfAnswers")
+    private List<String> answers = new ArrayList<String>();
+    
+	public SimpleQuestion() {}
+    
+    
+	public SimpleQuestion(String title, String description) {
+		this.title = title;
+		this.description = description;
+	}
 	
-    public SimpleQuestion() {
-    	
-    }
-    
-//	public SimpleQuestion(String title, String description) {
-//		super();
-//		this.title = title;
-//		this.description = description;
-//	}
-    
-	public SimpleQuestion(List<SimpleAnswer> simpleAnswers, String title, String description) {
-		super();
-		this.simpleAnswers = simpleAnswers;
+	public SimpleQuestion(ArrayList<String> answers, String title, String description) {
+		this.answers = answers;
 		this.title = title;
 		this.description = description;
 	}
 	
 	
-
-	public List<SimpleAnswer> getSimpleAnswers() {
-		return simpleAnswers;
-	}
-
-	public void setAnswers(List<SimpleAnswer> simpleAnswers) {
-		this.simpleAnswers = simpleAnswers;
-	}
-
+	
+	/* ************************* */
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+    public List<String> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<String> answers) {
+		this.answers = answers;
 	}
 
 	public String getTitle() {
@@ -76,10 +76,6 @@ public class SimpleQuestion {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
-    /* ************************************ */
-    
 
 }
 
