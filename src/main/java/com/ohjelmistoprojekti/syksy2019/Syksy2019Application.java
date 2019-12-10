@@ -48,8 +48,8 @@ public class Syksy2019Application {
 			 * Luo testikäyttäjät
 			 *	 => https://www.browserling.com/tools/bcrypt
 			 */
-			//urepository.save(new User ("Pekka", "Paavola", "pekka.paavola@gmail.com", "admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN"));
-			//urepository.save(new User ("Pekkaa", "Paavolaa", "pekka.paavolaa@gmail.com", "user", "$2a$10$LTjPPrHhtLSdS8ZrhO/Wg.tgT2B2LOeLKCXAVJ/Hkr4F/bsckgo9W", "USER"));
+			urepository.save(new User ("Pekka", "Paavola", "pekka.paavola@gmail.com", "admin", "$2a$10$OBmszjHlVWegMrn6jymleeFB6A.cjEmzjl/WAKWnzHgUbTZaxVwuC", "ADMIN"));
+			urepository.save(new User ("Pekkaa", "Paavolaa", "pekka.paavolaa@gmail.com", "user", "$2a$10$LTjPPrHhtLSdS8ZrhO/Wg.tgT2B2LOeLKCXAVJ/Hkr4F/bsckgo9W", "USER"));
 			
 			/**
 			 * Luo vaihtoehdot kysymykseen
@@ -84,10 +84,10 @@ public class Syksy2019Application {
 			 * Tehdään testikysymykset
 			 */
 			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 1", "Tarvitsetko apua koulukurssin suorittamiseen?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 2", "Deadline?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 2", "Jos vastasit edelliseen kysymykseen EI, kerro alla tarkemmin?"));
 			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 3", "Aikataulu?"));
 			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 4", "Kuvaile ongelma?"));
-			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 5", "Aikataulu?"));
+			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 5", "Kerro minkälaista apua tarvitset?"));
 			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 6", "Oma osaamistasosi?"));
 			simpleQuestionRepository.save(new SimpleQuestion("Kysymys 7", "Ohjelmointikielet?"));
 			

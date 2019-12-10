@@ -23,16 +23,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		/**
-		 * Skipataan authorisointi toistaiseksi
-		 */
 		http.cors().and().csrf().disable();
-		http.httpBasic().disable();
-
-		/*
+		
 		http
 			.authorizeRequests()
-			.antMatchers( "/", "/signup").permitAll()
+			.antMatchers("/signup").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.formLogin()
@@ -40,8 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 			.logout()
 				.permitAll();
-				*/
-		 
+				
 	}
 	
 	@Autowired
